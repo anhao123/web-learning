@@ -1,0 +1,7 @@
+#hao{
+    width: 300px;
+    height:200px;
+    background-color: pink;
+    backface-visibility: hidden;
+    margin: 20px auto;
+}

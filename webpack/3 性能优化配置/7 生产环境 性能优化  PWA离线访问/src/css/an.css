@@ -1,0 +1,12 @@
+.an{
+    margin: 20px auto;
+    width: 100px;
+    height: 100px;
+    background: url("../img/04.jpg") no-repeat -120px 0;
+}
+.font-img{
+    margin:20px auto;
+    width: 100px;
+    height: 200px;
+    background-color: pink;
+}
