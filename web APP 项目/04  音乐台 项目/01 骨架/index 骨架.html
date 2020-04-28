@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .wrap{
+            height:100%;
+            overflow: hidden;
+        }
+        .head{
+            height:5rem;
+            width:100%;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+<body>
+ <div class="wrap">
+     <div class="head"></div>
+ </div>
+  <script type="text/javascript">
+      window.onload=function () {
+          //全面禁止 默认事件  包括 禁止系统滚动条
+             document.addEventListener("touchstart",function (ev) {
+                 ev=ev||event
+                 ev.preventDefault()
+             })
+             ;(function () {//rem 适配
+                var style=document.createElement("style")
+                var w=document.documentElement.clientWidth/16
+                style.innerHTML="html{font-size:"+w+"px!important}"
+                document.head.appendChild(style)
+          })()
+      }
+  </script>
+</body>
+</html>

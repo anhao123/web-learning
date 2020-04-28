@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+      /*iterator 遍历器 实现原理 一种接口机制 为 for of 消费使用  对象不能使用for of 遍历 因为对象 身上没有部署iterator 接口机制  */
+        /* iterator 的底层实现原理 */
+    function Myiterator(arr) {
+        var index=0
+          return {
+              next:function () {
+                     return index<arr.length?{value:arr[index++],done:false}:{value:undefined,done:true}
+              }
+          }
+    }
+    var arr=[1,2,3]
+    var an=Myiterator(arr)
+      console.log(an.next())
+      console.log(an.next())
+      console.log(an.next())
+      console.log(an.next())
+      console.log(an.next())
+
+
+</script>
+</body>
+</html>

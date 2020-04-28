@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height:100%;
+            overflow: hidden;
+        }
+        #wrap{height:100%;overflow: hidden}
+       /*.carouse-wrap{position: relative}
+       .carouse-wrap>.list{overflow: hidden;position: absolute!*overflow: hidden;清除浮动*!}
+       .carouse-wrap>.list>li{list-style: none;float: left;}
+        .carouse-wrap>.list>li>a,.carouse-wrap>.list>li>a>img{display: block;width: 100%}
+
+
+        .carouse-wrap>.carouse-point{position: absolute;bottom:2px;width:100%;z-index: 1;text-align: center}
+        .carouse-wrap>.carouse-point>span{display:inline-block;width: 10px;height: 10px;border-radius: 50%;
+                                        background-color: white;margin-left: 5px}
+        .carouse-wrap>.carouse-point>span.active{background-color: deeppink}*/
+        /*百分比适配*********************/
+    </style>
+    <link rel="stylesheet" href="css/lunbo.css">
+</head>
+<body>
+<div id="wrap"><!--needcarousel 无缝    needzidong 自动-->
+     <div class="carouse-wrap" needzidong needcarousel>
+         <div class="carouse-point"></div>
+     </div>
+</div>
+<script src="js/carousel%20.js"></script>
+<script type="text/javascript">
+   window.onload=function () {
+       /*document.addEventListener("touchstart",function (e) {
+            var e=e||event
+           e.preventDefault();
+       })*/
+       var arr=["pic/01.jpg","pic/02.jpg","pic/03.jpg","pic/05.jpg",]
+
+       css.carousel(arr);
+//    无缝滑屏
+
+   }
+</script>
+</body>
+</html>

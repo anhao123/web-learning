@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>rem 适配</title>
+   <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+       /*
+         有两种方案  rem 适配
+       */
+       .an{
+           width:16rem;
+           height:1px;
+           margin-top: 50px;
+           background-color: deeppink;
+       }
+   </style>
+</head>
+<body>
+
+ <div class="an">
+
+ </div>
+<script type="text/javascript">
+    (function () {
+        var dpr=window.devicePixelRatio||1;
+         var meta=document.querySelector("meta[name='viewport']")
+        var scale=1/dpr;
+
+         var style=document.createElement("style")
+         var w=document.documentElement.clientWidth*dpr/16
+        style.innerHTML="html{font-size:"+w+"px!important;}"
+        document.head.appendChild(style)
+
+        meta.content="width=device-width,initial-scale="+scale+",user-scalable=no"
+    })()
+</script>
+</body>
+</html>

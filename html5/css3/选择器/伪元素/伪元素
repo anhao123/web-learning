@@ -1,0 +1,7 @@
+
+    五种 伪元素
+    ::before
+    ::after      //(一个元素只有一个 before  和一个  after  伪类)
+    ::first-letter
+    ::first-line
+    ::selection

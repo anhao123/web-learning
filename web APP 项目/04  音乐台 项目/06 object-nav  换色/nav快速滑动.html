@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/yinyue.css">
+</head>
+<body>
+ <div class="wrap">
+     <div class="head">
+         <div class="head-top">
+             <h1 class="logo">
+                 <a href="http://yy64.cn/">
+                     <img src="img/logo.png" alt="logo">
+                 </a>
+             </h1>
+             <a href="javascript:;" class="menuBtn "></a>
+             <div class="btns">
+                 <a href="javascript:;" class="sou">搜索</a>
+                 <a href="javascript:;">登录</a>
+                 <a href="javascript:;">搜索</a>
+             </div>
+         </div>
+         <div class="head-bottom">
+             <form action="">
+                 <input type="text" placeholder="请输入"/>
+                 <input type="submit" value="搜索">
+             </form>
+         </div>
+         <div class="mask">
+             <ul>
+                 <li>
+                     <a href="javascript:;">首页</a>
+                 </li>
+                     <li> <a href="javascript:;">MV</a></li>
+                     <li> <a href="javascript:;">悦单</a></li>
+                     <li> <a href="javascript:;">V榜</a></li>
+                     <li> <a href="javascript:;">音乐</a></li>
+                     <li> <a href="javascript:;">商城</a></li>
+                     <li> <a href="javascript:;">节目</a></li>
+                    <li> <a href="javascript:;">饭团</a></li>
+                    <li>  <a href="javascript:;">咨询</a></li>
+                     <li> <a href="javascript:;">我的家</a></li>
+                     <li> <a href="javascript:;">APP下载</a></li>
+                    <li> <a href="javascript:;">热门应用</a></li>
+             </ul>
+         </div>
+     </div>
+     <div class="content">
+         <div class="drap-nav">
+             <ul class="list">
+                 <li class="active">
+                     <a href="javascript:;">首页</a>
+                 </li>
+                 <li> <a href="javascript:;">MV</a></li>
+                 <li> <a href="javascript:;">悦单</a></li>
+                 <li> <a href="javascript:;">V榜</a></li>
+                 <li> <a href="javascript:;">音乐</a></li>
+                 <li> <a href="javascript:;">商城</a></li>
+                 <li> <a href="javascript:;">节目</a></li>
+                 <li> <a href="javascript:;">饭团</a></li>
+                 <li>  <a href="javascript:;">咨询</a></li>
+                 <li> <a href="javascript:;">我的家</a></li>
+                 <li> <a href="javascript:;">APP下载</a></li>
+                 <li> <a href="javascript:;">热门应用</a></li>
+                 <li>  <a href="javascript:;">咨询</a></li>
+                 <li> <a href="javascript:;">我的家</a></li>
+                 <li> <a href="javascript:;">APP下载</a></li>
+                 <li> <a href="javascript:;">热门应用</a></li>
+                 <li>  <a href="javascript:;">咨询</a></li>
+                 <li> <a href="javascript:;">我的家</a></li>
+                 <li> <a href="javascript:;">APP下载</a></li>
+                 <li> <a href="javascript:;">热门应用</a></li>
+
+             </ul>
+         </div>
+         <div class="carouse-wrap" needzidong needcarousel>
+             <div class="carouse-point"></div>
+         </div>
+     </div>
+ </div>
+ <script src="js/carousel%20.js"></script>
+ <script src="js/tools.js"></script>
+ <script type="text/javascript">
+      window.onload=function () {
+          //全面禁止 默认事件  包括 禁止系统滚动条
+             document.addEventListener("touchstart",function (ev) {
+                 ev=ev||event
+                 ev.preventDefault()
+             })
+             ;(function () {//rem 适配
+                var style=document.createElement("style")
+                var w=document.documentElement.clientWidth/16
+                style.innerHTML="html{font-size:"+w+"px!important}"
+                document.head.appendChild(style)
+          })()
+          //点击Nav 换色
+          navcolor();//事件委托
+           function navcolor() {
+               var ul=document.querySelector(".drap-nav .list")
+               var lis=document.querySelectorAll(".drap-nav .list li")
+               /*li 点击 换背景*/
+               ul.addEventListener("touchstart",function () {
+                   this.flag=false
+               })
+               ul.addEventListener("touchmove",function () {
+                   this.flag=true
+               })
+               ul.addEventListener("touchend",function (e) {
+                       e=e||event
+                   var touchC=e.changedTouches[0]
+                   if(!this.flag){
+                       for(var i=0;i<lis.length;i++){
+                           // lis[i].classList.remove("active")
+                           tools.removeClass(lis[i],"active")
+                       }
+                       if(touchC.target.nodeName==='A'){
+                           // touchC.target.parentNode.classList.add('active')
+                           // touchC.target.parentElement.className='active'
+                           tools.addClass(touchC.target.parentNode,"active")
+                       }else if (touchC.target.nodeName.toUpperCase()==='LI'){
+                           // touchC.target.classList.add('active')
+                           tools.addClass(touchC.target,"active")
+                       }
+                   }
+               })
+              /* for(var i=0;i<lis.length;i++){
+                   lis[i].addEventListener("touchstart",function (e) {
+                       // this.index=i
+                       this.flag=false
+                   })
+                   lis[i].addEventListener("touchmove",function () {
+                       // this.index=i
+                       this.flag=true
+                   })
+                   lis[i].addEventListener("touchend",function (e) {
+
+                       if(!this.flag){
+                           for(var i=0;i<lis.length;i++){
+                               lis[i].classList.remove("active")
+                           }
+                           this.classList.add("active")
+                       }
+                   })
+               }*/
+           }
+          //carousel  轮播
+          carousel();
+          function carousel() {
+              var arr=["img/1.jpg","img/2.jpg","img/3.jpg","img/5.jpg",]
+              css.carousel(arr);
+          }
+
+          //导航拉动效果
+          css.navDong();
+
+        // 面包屑 导航
+          menuBtn()
+          function menuBtn(){
+              var mask=document.querySelector(".head>.mask")
+              var menuBtn=document.querySelector(".head>.head-top>.menuBtn")
+              var flag=true
+              menuBtn.addEventListener("touchstart",function (e) {
+                  e=e||event
+                  var touchC=e.changedTouches[0]
+                  if(flag){
+                      menuBtn.classList.add("active")
+                      mask.style.display="block"
+                  }else{
+                      menuBtn.classList.remove("active")
+                      mask.style.display="none"
+                  }
+                  flag=!flag
+                  e.stopPropagation()
+                  /*哪里阻止了冒泡一定要在哪里阻止默认事件*/
+                  e.preventDefault()
+              })
+              document.addEventListener("touchstart",function () {
+                  if(!flag){
+                      menuBtn.classList.remove("active")
+                      mask.style.display="none"
+                      flag=!flag
+                  }
+              })
+              mask.addEventListener("touchstart",function (e) {
+                  e=e||event
+                  e.stopPropagation()
+                  /*哪里阻止了冒泡一定要在哪里阻止默认事件*/
+                  e.preventDefault()
+              })
+          }
+          
+          //搜索框 得到 失去焦点
+         focusBlur()
+          function focusBlur(){
+                 var inputText=document.querySelector(".wrap .head .head-bottom form input[type='text']")
+              inputText.addEventListener("touchstart",function (e) {
+                  e=e||event
+                  this.focus()
+                  e.stopPropagation()
+                  e.preventDefault()
+              })
+              document.addEventListener("touchstart",function (e) {
+                  e=e||event
+                  inputText.blur()
+              })
+          }
+
+      }
+  </script>
+</body>
+</html>

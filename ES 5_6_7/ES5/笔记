@@ -1,0 +1,56 @@
+1、ES5中新增的一些
+   js核心   有混杂模式    严格模式  在js代码开头写上   use strict;   就可
+       严格模式   （1）定义变量必须  var 声明
+                 （2）对象中  不能重复命名  但不会报错
+                 （3）reval() 将字符串转为js执行语句 的函数   中定义的变量   为  局部变量
+                       var x=10
+                       reval('var x=20;console.log(x)')
+                       console.log(x);
+                        严格模式下  输出为 20  10
+                        混杂模式下  输出为 20  20
+                        禁止自定义函数 中的 this 指向  window
+2、ES5中新增的一些扩展
+ Object 扩展  两个方法
+   var obj={
+           name:'an',
+           name1:'hao',
+           age:20
+       }
+     //   Object.defineProperties(obj,{
+     //       fullname:{
+     //           get:function () {
+     //                 return
+     //           },
+     //           set:function (data) {//设置 sex值
+     //
+     //           }
+     //       }
+     //   })
+     //   console.log(obj)
+     //   obj.fullname='nv nan'//此值可传给 set中的 data
+       ////////////////////////////////////////////////////////////////////////////////
+       var obj1={}
+         obj1=Object.create(obj,{
+           sex:{
+               value:'nan',
+               writable:true,//可修改
+               configurable:true,//可删除
+               enumerable:true//可被枚举
+           }
+       }) //新增的Object 扩展 。。。。。。。。。。。
+
+       obj1.sex='nv'
+       console.log(obj1)
+
+  3、 新增的 数组  方法
+      .filter(function(item,index){return item>3结果为true的结果 })  返回一个新数组
+      .indexOf(value) 返回 第一个value所在数组中的下标
+      .lastIndexOf()  返回 最后个value所在数组中的下标
+      .map(function(item,index){return 对item 加减或其他操作 }) 返回 一个新的数组
+      .forEach(function(item,index){ })   循环遍历数组
+
+  4、 改变this指针
+  传参 可写可不写  看情况
+     .call(obj,参)
+     .apply(obj,参)
+     .bind(obj,参)  一般用于 回调函数的this指针绑定

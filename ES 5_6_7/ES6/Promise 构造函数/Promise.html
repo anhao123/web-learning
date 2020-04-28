@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function getmsg(url,data){
+          let arr=[]
+        for(let k in data){
+            arr.push(`${k}=${data[k]}`)
+        }
+        let Url=arr.join('&');
+        let promise=new Promise((resolve,reject)=>{
+            let xhr=new XMLHttpRequest();
+            xhr.open('get',url+'?'+Url,true);
+            xhr.send(null)
+
+            xhr.onreadystatechange=()=>{
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        resolve(xhr.responseText)
+                    }else{
+                        reject('zanshiyoucuo')
+                    }
+                }
+            }
+        })
+        /*tostring=(data)=>{
+            let arr=[]
+            for(let k in data){
+                arr.push(`${k}=${data[k]}`)
+            }
+            let url=arr.join('&');
+            return url
+        }*/
+        return promise
+    }
+getmsg('http://localhost:4000/userlist',{type:'aini'})
+    .then((data)=>{//成功
+        console.log(data)
+    },(err)=>{//失败
+        console.log(err)
+    })
+
+
+</script>
+</body>
+</html>

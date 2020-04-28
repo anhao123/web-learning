@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>rem 适配</title>
+   <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+       /*
+         rem 适配 就是用相同 数值加单位 就能铺满不同设备的视觉视口   使其等比
+              也就是说 1rem 在不同设备占据的大小是等比的,
+              换句话说就是 1rem 在不同设备占据的 css像素个数是不一样的
+
+             rem 参照根标签的  font-size  大小
+             可将 根标签的font-size 设置为 布局视口的宽度 或者 布局视口的宽度/16
+             优点：用了 完美视口
+             缺点：px 与 rem 转换太麻烦 例如  一个元素宽为 300px 设计图宽为640px  这个元素换为rem 是  (300/640)*16  rem
+
+       */
+       .an{
+           width:16rem;
+           height:8rem;
+           background-color: deeppink;
+       }
+   </style>
+</head>
+<body>
+
+ <div class="an">
+    rem
+ </div>
+<script type="text/javascript">
+  /* var html=document.querySelector("html")
+   html.style.fontSize=document.documentElement.clientWidth/16+"px";*/
+    window.onload=function () {
+        (function(){
+            var style=document.createElement("style")
+            var w=document.documentElement.clientWidth/16
+            style.innerHTML="html{font-size:"+w+"px !important; }"
+            document.head.appendChild(style);
+        })()
+    }
+
+</script>
+</body>
+</html>

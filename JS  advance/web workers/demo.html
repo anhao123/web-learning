@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="shuru"/>
+    <button id="an">点击</button>
+<script type="text/javascript">
+    input=document.getElementsByTagName('input')[0]
+      document.getElementById('an').onclick=function () {
+            var number=input.value
+          console.log(number)
+          //引用web workers
+          var worker=new Worker('workers.js')
+            //发消息
+          worker.postMessage(number);
+            console.log('发送了数据'+number);
+            //收消息
+          worker.onmessage=function (event) {
+              alert(event.data)
+               console.log('jieshoul'+ event.data);
+          }
+      }
+</script>
+
+</body>
+</html>

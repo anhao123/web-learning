@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #an{
+            position: absolute;
+            left: 50%;
+            top:50%;
+            width: 200px;
+            height: 200px;
+            margin-left:-100px;
+            margin-top: -100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="an">
+
+</div>
+
+
+<script type="text/javascript">
+    /*event 事件
+       changedTouches   触发当前事件的手指列表
+       targetTouches   触发当前事件 时 元素上的手指列表
+       touches         触发当前事件 时 屏幕上的手指列表
+    * */
+     window.onload=function () {
+         var an=document.querySelector("#an")
+          an.addEventListener("touchend",function (e) {
+                var e=e||event
+              an.innerHTML="changedTouches:"+e.changedTouches.length+"<br/>"
+              an.innerHTML+="targetTouches:"+e.targetTouches.length+"<br/>"
+              an.innerHTML+="touches:"+e.touches.length+"<br/>"
+              console.log(e)
+          })
+     }
+
+
+</script>
+</body>
+</html>

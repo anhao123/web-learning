@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/yinyue.css">
+</head>
+<body>
+ <div class="wrap">
+     <div class="head">
+         <div class="head-top">
+             <h1 class="logo">
+                 <a href="http://yy64.cn/">
+                     <img src="img/logo.png" alt="logo">
+                 </a>
+             </h1>
+             <a href="javascript:;" class="menuBtn "></a>
+             <div class="btns">
+                 <a href="javascript:;" class="sou">搜索</a>
+                 <a href="javascript:;">登录</a>
+                 <a href="javascript:;">搜索</a>
+             </div>
+         </div>
+         <div class="head-bottom">
+             <form action="">
+                 <input type="text" placeholder="请输入"/>
+                 <input type="submit" value="搜索">
+             </form>
+         </div>
+         <div class="mask">
+             <ul>
+                 <li>
+                     <a href="javascript:;">首页</a>
+                 </li>
+                     <li> <a href="javascript:;">MV</a></li>
+                     <li> <a href="javascript:;">悦单</a></li>
+                     <li> <a href="javascript:;">V榜</a></li>
+                     <li> <a href="javascript:;">音乐</a></li>
+                     <li> <a href="javascript:;">商城</a></li>
+                     <li> <a href="javascript:;">节目</a></li>
+                    <li> <a href="javascript:;">饭团</a></li>
+                    <li>  <a href="javascript:;">咨询</a></li>
+                     <li> <a href="javascript:;">我的家</a></li>
+                     <li> <a href="javascript:;">APP下载</a></li>
+                    <li> <a href="javascript:;">热门应用</a></li>
+             </ul>
+         </div>
+     </div>
+ </div>
+  <script type="text/javascript">
+      window.onload=function () {
+          //全面禁止 默认事件  包括 禁止系统滚动条
+             document.addEventListener("touchstart",function (ev) {
+                 ev=ev||event
+                 ev.preventDefault()
+             })
+             ;(function () {//rem 适配
+                var style=document.createElement("style")
+                var w=document.documentElement.clientWidth/16
+                style.innerHTML="html{font-size:"+w+"px!important}"
+                document.head.appendChild(style)
+          })()
+      }
+  </script>
+ <script src="js/index.js"></script>
+</body>
+</html>

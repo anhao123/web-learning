@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="clone.js"></script>
+<script type="text/javascript">
+    var an=[1,2,{name:'an',age:18}]
+    var a=clone(an)
+    a[2].name='hao111'
+    console.log(an,a)
+    var checktype=Object.prototype.toString.call(an).slice(8,-1) //可用来判断 数据的类型 Object Array
+    console.log(checktype)
+  /*  function clone(target){
+        var result,checked=checkType(target)
+         console.log(checked)
+        if(checked==='Object'){
+            result={}
+        }else if(checked==="Array"){
+            result=[]
+        }else{
+            return target
+        }
+        for(var k in target){
+            var value=target[k]
+            if(checkType(value)==='Object'|| checkType(value)==='Array'){
+                result[k]=clone(value)
+            }else{
+                result[k]=value
+            }
+        }
+        return result
+    }
+    function checkType(target){
+        return Object.prototype.toString.call(target).slice(8,-1)
+
+    }*/
+
+</script>
+</body>
+</html>

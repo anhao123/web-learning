@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .an{
+            width: 200px;
+            height: 500px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<!--
+  移动端两个事件   触屏事件   指针事件
+   touchstart
+   touchmove
+   touchend
+-->
+ <div class="an">
+
+ </div>
+<script type="text/javascript">
+     /*
+     * document.querySelectorAll('.an')  有个坑 ********************** 他只能获取静态列表  如果在后边又有 元素添加进来 他就会炸掉！！！！！
+     * */
+      var an=document.querySelectorAll('.an')
+
+</script>
+</body>
+</html>

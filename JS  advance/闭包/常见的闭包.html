@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //常见的闭包函数
+     //闭包产生的条件   1 嵌套函数 2内部函数引用外部函数的数据（变量或函数）就产生了闭包
+     //函数执行完之后  局部变量不会存在  只有在闭包中的变量才会有可能存在 ？？？
+    // 为什么是有可能的呢  是因为闭包所在的函数对象在函数执行完后 有可能没有被引用成为垃圾对象
+    //闭包的生命周期 产生  死亡
+   function fn(){
+         // 闭包产生
+       var a=2
+       function f(){   //闭包
+           a++
+           console.log(a);
+       }
+       return f
+   }
+    var f=fn()  // 函数执行完之后   局部变量a依然存在 因为a在闭包中 且 有 f 引用闭包的函数对象
+   // fn()()  //如果 此语句替换上一语句 则局部变量a不会存在 因为a在闭包的函数对象成为了垃圾对象
+    f()  //3
+    f()  //4
+    f=null //闭包死亡
+
+
+    //第2个
+    function fun(msg,time) {
+        setTimeout(function () {
+                 console.log(msg);
+        },time)
+    }
+    fun('aaaa',1000);
+
+</script>
+</body>
+</html>

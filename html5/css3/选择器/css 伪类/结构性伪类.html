@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*li{
+            list-style: none;
+        }
+        !*#a1 li:first-child{
+            border: 1px solid;
+        }*!
+        !*#a1 li:last-child {
+            border: 1px solid;
+        }*!
+        #a1 p:nth-child(1) {
+            border: 1px solid;
+        }*/
+        a{
+            text-decoration: none;
+            float: left;
+            display: block;
+            width: 100px;
+            height: 50px;
+            text-align:center ;
+            line-height: 50px;
+        }
+        #a1>a:not(:last-child){
+            border-right: 1px solid deeppink;
+        }
+    </style>
+</head>
+<body>
+ <!--   index从1 开始
+    1、:nth-child(index)
+         :first-child
+         :last-child
+         :only-child
+         :nth-last-child(index) 倒数
+   2、 :nth-of-type(index)
+        :first-of-type
+         :last-of-type
+         :only-of-type
+         :nth-last-of-type(index) 倒数
+         区别：:nth-last-child(index)  所有子元素 中的第几个 并且为指定的元素才生效
+         :nth-last-of-type(index)   所有 指定的子元素  中的第几个选中
+
+
+         注意   .class:nth-of-type(index)   所有子元素  都会被选中
+                 .class:nth-child(index)
+                 两种的使用  *************************************************
+***********************************************************************************
+        :empty   :not
+  -->
+
+<div id="a1">
+    <a>1</a>
+    <a>5</a>
+    <a>3</a>
+    <a>2</a>
+
+
+</div>
+</body>
+</html>

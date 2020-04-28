@@ -1,0 +1,36 @@
+.1-px(top,@color:black){
+   position: relative;
+  &::before{
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    top: 0;
+    background-color: @color;
+    @media only screen and (-webkit-device-pixel-ratio: 2){
+      transform: scaleY(.5);
+    }
+    @media only screen and (-webkit-device-pixel-ratio: 3){
+      transform: scaleY(.333333);
+    }
+  }
+}
+.1-px(bottom,@color:black){
+  position: relative;
+  &::after{
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  background-color: @color;
+  @media only screen and (-webkit-device-pixel-ratio: 2){
+    transform: scaleY(.5);
+  }
+  @media only screen and (-webkit-device-pixel-ratio: 3){
+    transform: scaleY(.333333);
+  }
+}
+}

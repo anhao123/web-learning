@@ -1,0 +1,38 @@
+.carouse-wrap {
+  position: relative;
+}
+.carouse-wrap > .list {
+  overflow: hidden;
+  position: absolute;
+  /*overflow: hidden;清除浮动*/
+}
+.carouse-wrap > .list > li {
+  list-style: none;
+  float: left;
+}
+.carouse-wrap > .list > li > a {
+  display: block;
+  width: 100%;
+}
+.carouse-wrap > .list > li > a > img {
+  display: block;
+  width: 100%;
+}
+.carouse-wrap > .carouse-point {
+  position: absolute;
+  bottom: 2px;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+}
+.carouse-wrap > .carouse-point span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  margin-left: 5px;
+}
+.carouse-wrap > .carouse-point span.active {
+  background-color: #ff1493;
+}

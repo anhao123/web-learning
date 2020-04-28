@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+   class Person{
+       constructor(name,age) {
+           this.name=name
+           this.age=age
+       }
+       show(){
+           console.log(this.name)
+       }
+   }
+   let p=new Person('an',20)
+   p.show()
+
+
+    class Son extends Person{//类的继承
+       constructor(name,age,salary) {
+           super(name,age)
+           this.salary=salary
+       }
+       show() {
+           console.log(this.salary)  //子类可重写  父类方法
+       }
+    }
+    let p1=new Son('hao',18,12000);
+   p1.show()
+   console.log(p1)
+
+</script>
+</body>
+</html>

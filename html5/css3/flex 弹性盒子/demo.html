@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width:360px;
+            height:360px;
+            border:1px solid deeppink;
+            margin: 100px auto;
+            /*新版flex**********************************************************************/
+            display: flex; /*设置弹性盒子*/
+            /*设置主轴(主轴一变化 侧轴也对应着变化)位置（水平方向/垂直方向)以及 主轴的方向（默认为水平向右)row-reverse column-reverse row column */
+            flex-direction:row;
+            /*设置 主轴的富裕空间管理 （默认为 flex-start）可设置flex-end center space-between space-around*/
+            justify-content:flex-start;
+            /*设置 侧轴的富裕空间管理 （默认为 flex-start）可设置 flex-end center baseline stretch(等高布局 前提是其项目没有设置宽度) */
+            align-items:flex-start;
+
+            /*新版新增 flex-wrap:wrap/ nowrap/ wrap-reverse 侧轴 空间管理 当主轴 方向容器宽度不够 就可使用flex-wrap：wrap换行
+               wrap-reverse 为 改变侧轴方向 此时 align-content:flex-start 作用于多行 管理侧轴空间 与align-items 作用于单行 因此不冲突 */
+             /*flex-wrap: wrap;*/
+            /*align-content: flex-start;*/
+
+ /*!*老版flex**** 必须要学习  一些手机 的内核较低 不支持新版的flex******************************************************************/
+           /* display:-webkit-box ; !*设置弹性盒子*!
+            !*设置主轴(主轴一变化 侧轴也对应着变化)位置（水平方向/垂直方向）vertical(垂直)  horizontal（水平）*!
+            -webkit-box-orient:horizontal;
+            !*设置主轴主轴的方向（默认为水平向右)normal(默认方向)  reverse（反向）*!
+            -webkit-box-direction: normal;
+            !*设置 主轴的富裕空间管理 （
+            默认为start 不管主轴方向如何 start 总是在右边 或下边
+              而且 不管主轴方向如何 end 总是在左边 或上边
+            《跟新版的不同》）可设置end center justify在项目间 *!
+            -webkit-box-pack:start;
+            !*设置 侧轴的富裕空间管理 （默认为start）可设置 end center  *!
+            -webkit-box-align:start;*/
+        }
+        .wrap .items{
+             width:50px;
+             height: 50px;
+            background-color: red;
+            box-sizing: border-box;
+            border: black 1px solid;
+            text-align: center;
+            font-size: 20px;
+            line-height: 50px;
+            /* 新版   弹性空间管理 flex-grow:0 (默认值为0) 为项目分配剩余空间 flex-shrink:1 (默认值为1)（溢出空间 收缩）    */
+            /*flex-grow: 1;*/
+            /*flex-grow: 1;
+            flex-basis: 0;
+            flex-shrink: 1;  这三个用于写 宽度 等分布局  简写方式为 flex:1    */
+
+            /* 老版   弹性空间管理 -webkit-box-flex:0 (默认值为0) 为项目分配剩余空间（剩余空间可为负数 又称 溢出空间）    */
+            /*-webkit-box-flex: 1;*/
+        }
+        .wrap .items:nth-child(2){
+            /*单个项目的侧轴 空间管理 align-ciel:flex-start   order:数值大小 决定项目的排列顺序*/
+            /*order: 2; */
+            /*align-self: flex-end;*/
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="items">1</div>
+    <div class="items">2</div>
+    <div class="items">3</div>
+    <div class="items">4</div>
+    <div class="items">5</div>
+
+</div>
+</body>
+</html>

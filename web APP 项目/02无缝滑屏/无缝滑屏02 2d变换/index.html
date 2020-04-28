@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height:100%;
+            overflow: hidden;
+        }
+        #wrap{height:100%;overflow: hidden}
+        .carouse-wrap>.list>li{list-style: none;float: left;}
+        .carouse-wrap>.list>li>a,#wrap>.carouse-wrap>.list>li>a>img{display: block;width: 100%}
+        .carouse-wrap>.list{overflow: hidden;position: absolute/*overflow: hidden;清除浮动*/}
+        .carouse-wrap{position: relative}
+        .carouse-wrap>.carouse-point{position: absolute;bottom:2px;width:100%;z-index: 1;text-align: center}
+        .carouse-wrap>.carouse-point>span{display:inline-block;width: 10px;height: 10px;border-radius: 50%;
+                                        background-color: white;margin-left: 5px}
+        .carouse-wrap>.carouse-point>span.active{background-color: deeppink}
+        /*百分比适配*********************/
+    </style>
+</head>
+<body>
+<div id="wrap">
+     <div class="carouse-wrap">
+         <div class="carouse-point"></div>
+     </div>
+</div>
+<script type="text/javascript">
+   window.onload=function () {
+       document.addEventListener("touchstart",function (e) {
+            var e=e||event
+           e.preventDefault();
+       })
+       var arr=["pic/01.jpg","pic/02.jpg","pic/03.jpg","pic/05.jpg",]
+       carousel(arr);
+
+//    无缝滑屏
+       function carousel(arr){
+           var carouseWrap=document.querySelector(".carouse-wrap")
+           if(carouseWrap){
+               var ulNode=document.createElement("ul")
+               var styleNode=document.createElement("style")
+               for(var i=0;i<arr.length;i++){
+                   ulNode.innerHTML+='<li><a href="javascript: ;"><img src="'+arr[i]+'" alt="0'+(i+1)+'"/></a></li>'
+               }
+               ulNode.className='list'
+               styleNode.innerHTML="#wrap>.carouse-wrap>.list{width: "+arr.length*100+"%} #wrap>.carouse-wrap>.list>li{width: "+1/arr.length*100+"%}"
+               document.head.appendChild(styleNode)
+               carouseWrap.appendChild(ulNode)
+               //querySelector  的坑 只获取静态列表信息
+               var img=document.querySelector("#wrap>.carouse-wrap>.list>li>a>img")
+               setTimeout(function(){
+                   carouseWrap.style.height=img.offsetHeight+"px"
+               },100)
+
+               var carousePoint=document.querySelector(".carouse-wrap > .carouse-point")
+                if(carousePoint){
+                    for(var i=0;i<arr.length;i++){
+                        if(i===0){
+                            carousePoint.innerHTML+='<span class="active"></span>'
+                        }else{
+                            carousePoint.innerHTML+='<span></span>'
+                        }
+                    }
+                }
+                //获取 span
+                var span=document.querySelectorAll(".carouse-wrap>.carouse-point>span")
+               /*
+               * 点击时的位置 及ul左偏移量
+               * 移动时 的位置
+               * */
+               var clientX,elementX,left,translateX=0;
+               //var index=0  切换抽象
+               carouseWrap.addEventListener("touchstart",function (e) {
+                   var e=e||event
+                   var touch1=e.changedTouches[0]
+                   ulNode.style.transition="none"
+                   clientX=touch1.clientX
+                   elementX=translateX
+               })
+               carouseWrap.addEventListener("touchmove",function (e) {
+                   var e=e||event
+                   var touch1=e.changedTouches[0]
+                   var nowX=touch1.clientX
+                   left=nowX-clientX
+                   translateX=left+elementX
+                   ulNode.style.transform ="translateX("+ translateX+"px)"
+               })
+               carouseWrap.addEventListener("touchend",function (e) {
+                   var e=e||event
+                   var index=translateX/document.documentElement.clientWidth
+                   //index=Math.round(index)//滑到一半时就切换 四舍五入
+                   //console.log(index)
+                   /*if(left>0){//右滑
+                       index--
+                   }else{//左滑
+                       index++
+                   }console.log(index)*/
+                   if(left>0){//右滑
+                       index=Math.ceil(index)
+                   }else{//左滑
+                       index=Math.floor(index)
+                   }
+
+                   if (index>0){
+                       index=0
+                   }else if(index<1-arr.length){
+                       index=1-arr.length
+                   }
+                   //小圆点
+                   for(var i=0;i<span.length;i++){
+                       // span[i].className=' '
+                       span[i].classList.remove("active")
+                   }
+                    // span[-index].className="active"
+                   span[-index].classList.add("active")
+
+                   ulNode.style.transition="0.5s"
+                   translateX=index*document.documentElement.clientWidth
+                   ulNode.style.transform ="translateX("+translateX+"px)"
+               })
+           }
+       }
+   }
+</script>
+</body>
+</html>

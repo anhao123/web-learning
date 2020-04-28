@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>rem 适配</title>
+   <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+       /*
+         有两种方案  媒体查询
+       */
+       .an{
+           width:100%;
+           height:1px;
+           margin-top: 50px;
+           background-color: deeppink;
+       }
+       @media only screen and (-webkit-device-pixel-ratio: 2) {
+           .an{
+               transform: scaleY(.5);
+           }
+       }
+       @media only screen and (-webkit-device-pixel-ratio: 3) {
+           .an{
+               transform: scaleY(.3333333333);
+           }
+       }
+
+   </style>
+</head>
+<body>
+
+ <div class="an">
+
+ </div>
+</body>
+</html>

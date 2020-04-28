@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .an{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.8;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+ <div class="an"></div>
+ <a href="www.baidu.com">dianji</a>
+<script type="text/javascript">
+    /*pc端事件 click 有300ms 的延迟 用于判断 该事件是否是双击事件
+      pc端事件 click  在移动端也会触发
+      移动端事件 没有延迟
+    移动端的 事件点透
+    *   就是因为 touchstart 触发后  还会在300ms触发click事件 就造成了事件点透
+    * */
+     window.onload=function () {
+         var an=document.querySelector('.an')
+           an.addEventListener("touchstart",function(){
+               an.style.display="none"
+           })
+
+     }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+      function* myiterator() {//function*带星号的  都代表一个Generator 可暂停函数
+             console.log('开始');
+              yield 'hello'
+               yield console.log('aaaa');
+              // return  'anhao'
+      }
+     var mg=myiterator(); //myiterator()   返回一个遍历器 iterator指针对象
+      console.log(mg.next())  // 调用mg.next()才能执行函数语句  且遇到 yield 就暂停
+                              // 并返回 {value: "hello", done: false}  value值为此条   yield 'hello' 语句的数据 或者返回值
+      console.log(mg.next())   // 返回 {value: undefined, done: false}   因为  yield console.log('aaaa')  返回值为 undefined
+      console.log(mg.next())   //  函数语句结束  返回  {value: undefined, done: true}
+                               // 如果函数有返回值  return  'anhao';  则返回  {value: "anhao", done: true}
+/**********************************************************************************************************************8**/
+      /*给对象加一个 iterator 接口机制 就可使用 for of  遍历*/
+        let obj={
+           name:'an',
+           age:20
+        }
+    obj[Symbol.iterator]=function* mytext() {//function* mytext()  返回一个遍历器 iterator指针对象
+       yield 1
+       yield 2
+       yield 3
+     }
+   for (let k of obj){
+       console.log(k)
+    }
+</script>
+</body>
+</html>

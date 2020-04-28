@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /* var name='aaa'
+    var obj={
+       name:'an',
+       run:function () {
+          return function () {
+                  return this.name
+          }
+       }
+   }
+     console.log( obj.run()())  //this 为window
+*/
+     var name='aaa'
+     var obj={
+         name:'an',
+         run:function () {
+              var that=this
+             return function () {
+                 return that.name
+             }
+         }
+     }
+     console.log( obj.run()())  //that 为 obj
+///////////////////////
+        function an(n,o) {
+            console.log(o);
+            return{
+                run:function(m) {
+                    return an(m,n)
+                }
+            }
+        }
+        var a=an(0); a.run(1) ;a.run(2);a.run(3); //undefined 0 0 0
+        var a=an(0).run(1).run(2).run(3); //undefined 0 1 2
+          var a=an(0).run(1);  a.run(2);a.run(3);//undefined 0 1 1
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript">
+    function getmsg(url){
+        $.get(url,function (data) {
+            console.log(data)
+            let url=' '
+            aa.next(url)//中可传参  作为  yield getmsg('url')  的返回值  可写为let url=yield getmsg('url')
+        })
+    }
+    function* me() { //
+       let url=yield getmsg('url')
+        yield getmsg(url)  //如有需要 利用上次异步 的数据再次请求
+    }
+let aa=me()
+    aa.next()
+
+</script>
+</body>
+</html>

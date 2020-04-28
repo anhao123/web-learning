@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .an{
+            width: 200px;
+            height: 500px;
+            display: none;
+            position: absolute;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+ <div class="an">
+    test
+ </div>
+<script type="text/javascript">
+
+     window.onload=function () {
+         var an=document.querySelector('.an')
+            document.oncontextmenu=function (ev) {
+             var ev=ev||event
+              var x=ev.clientX+5,y=ev.clientY+5
+                an.style.display='block'
+                an.style.top=y+'px'
+                an.style.left=x+'px'
+                return false
+            }
+            document.onclick=function () {
+                 an.style.display="none"
+            }
+     }
+
+
+</script>
+</body>
+</html>

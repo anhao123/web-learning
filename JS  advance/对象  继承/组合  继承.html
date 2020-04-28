@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Parent(name,age) {
+        this.name=name
+        this.age=age
+    }
+    Parent.prototype.setname=function (name) {
+        this.name=name
+        console.log(this.name)
+    }
+
+    function Child(name,age,price) {
+        Parent.call(this,name,age)//核心语句 可向父类传参
+        this.price=price
+    }
+     Child.prototype=new Parent() // 原型链继承
+    Child.prototype.constructor=Child; //修正 构造函数指向
+
+    Child.prototype.setp=function (price) {
+        this.price=price
+        console.log(this.price)
+    }
+
+    var son=new Child('an',20,12000)
+
+    son.setname('hao')
+    son.setp(15000)
+   // console.log(son.name)
+</script>
+</body>
+</html>

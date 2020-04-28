@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <!--完美视口方案
+         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+                                                                             最小缩放比           最大缩放比        不允许用户缩放
+         -->
+    <!--
+    布局视口  谁大听谁的
+     content="width=device-width,initial-scale=1.0"
+         布局视口与视觉视口 为理想视口
+     content="width=device-width,initial-scale=2.0"
+        布局视口 为理想   视觉视口为理想视口的一半
+        content="width=device-width,initial-scale=0.5"
+        布局视口 数据视口 都为理想视口的两倍
+     -->
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .an{
+            width: 500px;
+            height: 200px;
+            background-color:deeppink;
+        }
+    </style>
+</head>
+<body>
+<div class="an">
+
+</div>
+
+</body>
+</html>

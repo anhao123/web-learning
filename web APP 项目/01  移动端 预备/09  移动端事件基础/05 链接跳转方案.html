@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .an{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.8;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="an">
+    <a href="www.baidu.com">dianji</a>
+    <a href="www.baidu.com">dianji</a>
+    <a href="www.baidu.com">dianji</a>
+    <a href="www.baidu.com">dianji</a>
+</div>
+
+
+<script type="text/javascript">
+    /*连接跳转 方案  解决 误触 问题
+    * */
+     window.onload=function () {
+         var a=document.querySelectorAll('a')
+         var an=document.querySelector("#an")
+         /*document.addEventListener("touchstart",function (e) {
+                var e=e||event
+             //禁止所有默认事件（系统滚动条、链接的跳转等）
+             e.preventDefault()
+         })*/
+         an.addEventListener("touchstart",function (e) {
+             var e=e||event
+             e.preventDefault()
+         })
+         for (var i=0;i<a.length;i++){
+             a[i].addEventListener("touchstart",function () {
+                 this.isMoved=false
+             })
+             a[i].addEventListener("touchmove",function () {
+                 this.isMoved=true
+             })
+
+             a[i].addEventListener("touchend",function () {
+                     if(!this.isMoved){
+                       window.location=this.href
+                     }
+             })
+         }
+
+
+     }
+
+
+</script>
+</body>
+</html>

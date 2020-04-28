@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+   /* var name = 'global';
+    var obj = {
+        name: 'local',
+        foo: function(){
+            this.name = 'foo';
+            console.log(11111,this)
+        }.bind(window)
+    };
+    var bar = new obj.foo();
+    setTimeout(function() {
+        console.log(window.name);
+    }, 0);
+    console.log(bar.name);
+
+    var bar3 = bar2 = bar;
+    bar2.name = 'foo2';
+    console.log(bar3.name); */
+   ///////////////**********************************
+   /*setTimeout(() => console.log('a'));
+   Promise.resolve().then(
+       () => console.log('b')
+       ).then(
+           () => Promise.resolve('c').then(
+               (data) => {
+                   setTimeout(() => console.log('d'));
+                   console.log('f');
+                   return data;
+               }
+           )
+       ).then(data => console.log(data));*/
+  /* function fib(n){
+       return n<=1?1:fib(n-1)+fib(n-2);
+   }
+
+   console.log( fib(3))*/
+  //***********************
+   class Person {
+       constructor (name) {
+           this.name = name;
+       }
+       greet () {
+           console.log(`Hi, my name is ${this.name}`);
+       }
+       greetDelay (time) {
+           setTimeout(() => {
+               console.log(this)//而在  class中  嵌套函数this为  本身对象Person
+               console.log(`Hi, my name is ${this.name}`);
+           }, time);
+       }
+   }
+ let aa=new Person('an');
+   aa.greetDelay()
+
+
+    function Pon(name) {
+           this.name=name
+        Pon.prototype.greet=function () {
+            console.log('Hi, my name is '+this.name);
+        }
+        Pon.prototype.greetDelay=function (time) {
+               let that=this//
+            console.log(this)
+               setTimeout(function () {
+                   console.log(this)//window
+                   console.log('Hi, my name is '+that.name);
+               },time)
+        }
+    }
+   let aaa=new Pon('an');
+   aaa.greetDelay()
+</script>
+</body>
+</html>

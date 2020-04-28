@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scala=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            height: 180px;
+            position: relative;
+            background-color:rgba(0,0,0,.5);
+        }
+        img{
+            margin: 50px 0 0 50px;
+        }
+        .bg{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            z-index: -1;
+            background: url("./tu/3.jpg") no-repeat;
+            background-size: 100% 100%;
+            filter: blur(10px);/*此函数  是 模糊整个元素*/
+        }
+        .wenben{
+            /*display: inline;   能有省略号 的 外部容器  必须是 有宽高的   不能是由内部撑开的元素*/
+            width: 100px;
+            height: 100px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border:1px solid #0b2c89 ;
+        }
+    </style>
+</head>
+<body>
+<!-- filter: blur(10px);   css中的  过滤 属性  blur() 是一个 模糊函数******************************************8888888-->
+ <div class="wrap">
+     <img src="./tu/3.jpg" width="130">
+     <div class="bg"></div>
+ </div>
+<br/>
+ <div class="wenben">
+     aaaaaaaaaaaaaaaaaaasssssssssssssssssssaaaaaaaaaaaa
+ </div>
+</body>
+</html>

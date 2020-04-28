@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #an{
+            position: absolute;
+            left: 50%;
+            top:50%;
+            width: 200px;
+            height: 200px;
+            margin-left:-100px;
+            margin-top: -100px;
+            background-color: pink;
+        }
+        a{
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        input{
+            -webkit-appearance: none;
+        }
+    </style>
+</head>
+<body>
+<div id="an">
+   <a href="javascript:;"> add</a>
+    <input type="button" value="123"/>
+</div>
+<script type="text/javascript">
+    /*1、电话 邮箱的禁止  不让所有数字 点了都会去打电话
+       加meta 标签     <meta name="format-detection" content="telephone=no,email=no"/>
+      2、链接的高亮问题  点击时背景有颜色  a{-webkit-tap-highlight-color:rgba(0,0,0,0)}
+      3、按钮的 过分圆角  input{-webkit-appearance:none}
+      4 、font boosting  浏览器自带的 会自动将字体放大  触发条件很苛刻 ？？？
+          只要 发现字体被改了 就要解决  P{ max-height:999999px}不影响其他样式
+    * */
+     window.onload=function () {
+
+    }
+
+
+</script>
+</body>
+</html>

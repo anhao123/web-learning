@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        text-align: center;
+        background-color: black;
+    }
+    div{
+        margin-top:100px ;
+        color: rgba(255,255,255,.3);
+        font-size: 80px;
+        display: inline-block;
+        background-image: linear-gradient(135deg,rgba(255,255,255,0) 50px,rgba(255,255,255,1) 120px,rgba(255,255,255,0) 200px);
+        -webkit-background-clip: text;
+        background-repeat: no-repeat;
+    }
+</style>
+</head>
+<body>
+<div>
+    任畅^-^安浩
+</div>
+<script type="text/javascript">
+    var div=document.getElementsByTagName('div')[0]
+      var flag=-50
+    setInterval(function () {
+        flag+=50
+        if(flag>=600){
+            flag=-50
+        }
+   div.style['background-position']=flag+'px'
+    },150)
+</script>
+</body>
+</html>

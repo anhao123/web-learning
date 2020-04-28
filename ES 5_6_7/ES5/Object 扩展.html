@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj={
+        name:'an',
+        name1:'hao',
+        age:20
+    }
+  ///Object  的扩展属性
+  //   Object.defineProperties(obj,{
+  //       fullname:{
+  //           get:function () {
+  //                 return this.name+' '+this.name1
+  //           },
+  //           set:function (data) {//设置 sex值
+  //               var name=data.split(' ')
+  //               this.name=name[0]
+  //               this.name1=name[1]
+  //               console.log(data)
+  //           }
+  //       }
+  //   })
+  //   console.log(obj)
+  //   obj.fullname='nv nan'//此值可传给 set中的 data
+
+    ///////////////////
+    var obj1={}
+      obj1=Object.create(obj,{
+        sex:{
+            value:'nan',
+            writable:true,//可修改
+            configurable:true,//可删除
+            enumerable:true//可被枚举
+        }
+    }) //新增的Object 扩展 。。。。。。。。。。。
+
+    obj1.sex='nv'
+    console.log(obj1)
+    /*for(k in obj1){
+        console.log(k,obj[k]);
+    }*/
+
+</script>
+</body>
+</html>

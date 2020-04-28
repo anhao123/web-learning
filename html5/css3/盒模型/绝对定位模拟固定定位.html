@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .wrap{
+           height: 100%;
+            overflow: auto;
+            border: 1px solid deeppink;
+        }
+        .hao{
+            width: 200px;
+            height:200px;
+            background-color: deeppink;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        /*  固定定位 在 老版本的 IE  移动端 无效果
+           **********************************************
+           初始包含块 是视口大小的矩形
+           绝对定位在父级没有使用 相对定位时 是根据初始包含块 来定位   而初始包含块有随 滚动条 动 而动  所以 》》》
+           确定滚动条在谁身上   在document上  会影响初始包含块   在自定义的  上  不影响  就可以用来 绝对定位 模拟 固定定位
+           overflow: hidden; 可禁用滚动条   overflow: auto; 可启用滚动条 并在其身上
+         html{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            height: 100%;
+            overflow: hidden;
+        }
+         */
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="an" style="height: 3000px">
+          <div class="hao">
+              aaaaa
+          </div>
+    </div>
+</div>
+</body>
+</html>

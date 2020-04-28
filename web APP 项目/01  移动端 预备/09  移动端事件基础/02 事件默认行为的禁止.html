@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 400px;
+            height: 400px;
+            background-color:deeppink;
+        }
+        .an{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<!--
+  移动端两个事件   触屏事件
+   touchstart
+   touchmove
+   touchend
+-->
+<div class="wrap">
+    0000
+    <div class="an">
+        test
+    </div>
+</div>
+
+<script type="text/javascript">
+     /*
+     *移动端  事件的默认行为 有  长按选中文字  下拉有橡皮调效果等
+     *利用以下代码 禁止文档中事件的默认行为
+     * document.addEventListener("touchstart",function (e) {
+                 var e=e||event
+                e.preventDefault();//禁止默认事件
+            })
+     * 利用事件的冒泡机制  来进行默认事件的 “解禁”
+     * */
+     window.onload=function () {
+         var an=document.querySelector('.an')
+         var wrap=document.querySelector('.wrap')
+         document.addEventListener("touchstart",function (e) {
+                 var e=e||event
+                e.preventDefault();//禁止默认事件
+            })
+         wrap.addEventListener("touchstart",function (e) {
+             var e=e||event
+              e.preventDefault()
+         })
+         an.addEventListener("touchstart",function (e) {
+                var e=e||event
+               e.stopPropagation();//阻止事件冒泡
+             // e.preventDefault()
+         })
+     }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    // Set容器可用于数组去重
+    var arr=[1,2,3,3,5,5,8,4,7,7,]
+    var arr1=arr
+     arr=[]
+    //console.log(arr1)
+    var set =new Set(arr1);
+    //console.log(set)
+    for(var i of set){
+        arr.push(i)
+        console.log(i)
+    }
+    console.log(arr)
+</script>
+</body>
+</html>

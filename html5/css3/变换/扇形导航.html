@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        *{
+            margin:0 ;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .wrap{
+            width: 80px;
+            height: 80px;
+            /*border: 1px solid;*/
+            position:absolute;
+            bottom: 15px;
+            right: 25px;
+        }
+        .an{
+            width: 76px;
+            height: 76px;
+           position: absolute;
+             left:2px ;
+            top: 2px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-image: url("images/aiwo-select.jpg");
+            background-size: 100% 100%;
+        }
+        .inner{
+            border-radius: 50%;
+            height: 80px;
+        }
+        .inner>img{
+            position: absolute;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+
+   <div class="wrap">
+       <div class="inner">
+           <img src="images/20.jpg" width="74">
+           <img src="images/14.jpg" width="74">
+           <img src="images/15.jpg" width="74">
+           <img src="images/18.jpg" width="74">
+           <img src="images/19.jpg" width="74">
+       </div>
+       <div class="an"></div>
+   </div>
+<script type="text/javascript">
+    window.onload=function () {
+       var an=document.querySelector('.an')
+       var imgs=document.querySelectorAll('img')
+          var flag=true
+        var cc=200
+        for(var i=0;i<imgs.length;i++){
+            imgs[i].index=i
+            imgs[i].onclick=function () {
+                var j=this.index
+                this.style.transition=300+'ms'
+                  this.style.transform='translate('+getxy(cc,j*90/4).x+','+getxy(cc,j*90/4).y+')  rotate(360deg) scale(1.5) '
+                  this.style.opacity=0.1
+
+                this.addEventListener('transitionend',function fn() {
+                    this.style.transform='translate('+getxy(cc,j*90/4).x+','+getxy(cc,j*90/4).y+')  rotate(360deg) scale(1) '
+                    this.style.opacity=1
+                    this.removeEventListener('transitionend',fn)
+                })
+
+            }
+
+        }
+
+        an.onclick=function () {
+           if(flag){
+               an.style.transition='1s'
+               an.style.transform='rotate(360deg)'
+               for(var i=0;i<imgs.length;i++){
+                   imgs[i].style.transition=(800+i*300)+'ms'
+                   imgs[i].style.transform='translate('+getxy(cc,i*90/4).x+','+getxy(cc,i*90/4).y+') rotate(360deg)'
+               }
+           }else{
+               an.style.transform='rotate(0)'
+               for(var i=0;i<imgs.length;i++){
+                   imgs[i].style.transition=(800+(imgs.length-1-i)*300)+'ms'
+                   imgs[i].style.transform='translate(0,0) rotate(0deg)'
+               }
+           }
+           flag=!flag
+        }
+      function getxy(cc,du) {
+          var s=Math.sin(du*Math.PI/180)
+          var s1=Math.cos(du*Math.PI/180)
+          var x=-s*cc+'px'
+          var y=-s1*cc+'px'
+           return {x:x,y:y}
+      }
+    }
+
+</script>
+</body>
+</html>

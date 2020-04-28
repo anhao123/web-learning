@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+   function Parent(name) {
+      this.name='anho'
+
+   }
+           Parent.prototype.showName=function(){
+               console.log(this.name)
+           }
+
+   function Child() {
+         this.age=20
+
+   }
+       Child.prototype=new Parent() //继承 Parent  Child的实例可使用  Parent的方法
+       Child.prototype.constructor=Child//修正 Child所指的构造函数
+   Child.prototype.getAge=function() {
+       console.log(this.age);
+   }
+
+   var son =new Child()
+       son.showName();
+   console.log(son)
+</script>
+</body>
+</html>

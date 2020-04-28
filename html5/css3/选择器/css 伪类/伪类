@@ -1,0 +1,26 @@
+
+  表单伪类 :enable  :disable  :focus  :checked
+  链接伪类：   :link  :visited   只能用于  a 标签  切写的顺序  为 link visited active hover
+  动态伪类：  :active :hover
+  结构性伪类： :nth-child(index)   :nth-of-type(index)  :empty  :not
+
+    index从1 开始
+        1、:nth-child(index)
+             :first-child
+             :last-child
+             :only-child
+             :nth-last-child(index) 倒数
+       2、 :nth-of-type(index)
+            :first-of-type
+             :last-of-type
+             :only-of-type
+             :nth-last-of-type(index) 倒数
+             区别：:nth-last-child(index)  所有子元素 中的第几个 并且为指定的元素才生效
+             :nth-last-of-type(index)   所有 指定的子元素  中的第几个选中
+
+
+             注意   .class:nth-of-type(index)   所有子元素  都会被选中
+                     .class:nth-child(index)
+                     两种的使用  *************************************************
+    ***********************************************************************************
+            :empty   :not

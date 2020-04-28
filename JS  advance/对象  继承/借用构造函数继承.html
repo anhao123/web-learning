@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+   function Parent(name,age) {
+          this.name=name
+       this.age=age
+   }
+   Parent.prototype.setname=function (name) {
+             this.name=name
+   }
+
+   function Child(name,age,price) {
+         Parent.call(this,name,age)//核心语句 可向（假的继承 不是真的！！！！！）父类传参
+       this.price=price
+   }
+        /* Child.prototype=new Parent()
+        Child.prototype.constructor=Child;*/
+
+   Child.prototype.setp=function (price) {
+             this.price=price
+   }
+
+   var son=new Child('an',20,12000)
+    console.log(son.name)
+</script>
+</body>
+</html>

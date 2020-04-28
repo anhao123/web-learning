@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="shuru"/>
+<button id="an">点击</button>
+<script type="text/javascript">
+    input=document.getElementsByTagName('input')[0]
+      //递归有错  栈溢出？？？？？？？/*不会搞啊啊啊啊啊*/
+   /* function ppp(n){
+        if(n<=0){
+            return
+        }else if(n<=2){
+            return 1
+        }else{
+            return ppp(n-1)+ppp(n-2)
+        }
+    }*/
+    document.getElementById('an').onclick=function () {
+        var number=input.value
+            //var result=ppp(number);
+        alert(number)
+    }
+</script>
+</body>
+</html>

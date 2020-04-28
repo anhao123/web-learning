@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"/>
+    <title>rem 适配</title>
+   <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+       /*
+         viewport 适配  是改变 css像素 与物理像素的比
+           优点：所量即所得
+           缺点：破坏了 完美视口
+       */
+       .an{
+           width:200px;
+           height:200px;
+           background-color: deeppink;
+       }
+   </style>
+</head>
+<body>
+
+ <div class="an">
+    rem
+ </div>
+<script type="text/javascript">
+    (function () {
+        var target=640;
+        var meta=document.querySelector("meta[name='viewport']");
+        // var scale=screen.width/target;   screen.width 理想视口的宽度 有兼容
+        var scale=document.documentElement.clientWidth/target;
+        meta.content="initial-scale="+scale+",minimum-scale="+scale+",maximum-scale="+scale+",user-scalable=no,";
+    })();
+</script>
+</body>
+</html>
